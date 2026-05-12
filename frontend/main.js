@@ -20,14 +20,16 @@ document.addEventListener('DOMContentLoaded', () => {
             const response = await fetch(API_URL, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({}) // Backend otomatis menggunakan curriculum.json
+                body: JSON.stringify({})
             });
 
-            const data = await response.json();
-
+            // Cek dulu apakah statusnya OK (200) sebelum dipaksa jadi JSON
             if (!response.ok) {
-                throw new Error(data.error || 'Terjadi kesalahan pada server.');
+                throw new Error(`Server Error (${response.status}): Silakan cek Vercel Logs untuk melihat penyebab backend crash.`);
             }
+
+            // Jika status OK, baru ubah ke JSON
+            const data = await response.json();
 
             // Tampilkan Ringkasan
             document.getElementById('total-semesters').innerText = data.total_semesters;
