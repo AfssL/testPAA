@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const errorContainer = document.getElementById('error-container');
     
     // Sesuaikan URL ini dengan port Flask Anda
-    const API_URL = 'http://127.0.0.1:5000/api/solve'; 
+    const API_URL = '/api/solve';
 
     generateBtn.addEventListener('click', async () => {
         // Reset UI
