@@ -5,45 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Study Plan Architect</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
     <header class="navbar">
         <div class="nav-content">
-            <h1>🎓 Study Plan Architect</h1>
-            <p>Automated DAG-based Course Prerequisite Scheduler</p>
+            <div class="brand">
+                <h1>🎓 Study Plan Architect</h1>
+                <p>Sistem Cerdas Perencanaan Akademik Terstruktur</p>
+            </div>
         </div>
     </header>
 
     <main class="container">
         <section class="control-panel">
             <div class="info-box">
-                <h2>Rencana Studi</h2>
-                <p>Klik tombol di bawah untuk menghasilkan jadwal kuliah yang tervalidasi menggunakan algoritma Topological Sort berdasarkan data kurikulum.</p>
-                <button id="generate-btn" class="btn-primary">Generate Schedule</button>
+                <h2>Rencana Studi Mahasiswa</h2>
+                <p>Susun jalur kelulusanmu dengan tepat. Sistem akan secara otomatis merekomendasikan pengambilan mata kuliah per semester dengan memastikan seluruh prasyarat akademik terpenuhi.</p>
+                <button id="generate-btn" class="btn-primary">Buat Jadwal Studi</button>
             </div>
             
             <div id="summary-cards" class="summary-cards hidden">
                 <div class="card stat-card">
-                    <h3>Total Semester</h3>
+                    <h3>Estimasi Semester</h3>
                     <p id="total-semesters" class="stat-value">0</p>
                 </div>
                 <div class="card stat-card">
-                    <h3>Total SKS</h3>
+                    <h3>Beban Studi (SKS)</h3>
                     <p id="total-sks" class="stat-value">0</p>
                 </div>
             </div>
         </section>
 
-        <section id="error-container" class="error-container hidden">
-            </section>
+        <section id="error-container" class="error-container hidden"></section>
 
         <section id="schedule-container" class="schedule-timeline hidden">
             </section>
     </main>
 
     <footer>
-        <p>Proyek Quiz 2 DAA - Surabaya, Indonesia</p>
+        <p>Proyek DAA | Afsal Murtaza (5025241190) - Surabaya, Indonesia</p>
     </footer>
 
     <script src="main.js"></script>
