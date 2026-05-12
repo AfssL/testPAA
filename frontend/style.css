@@ -1,13 +1,20 @@
 :root {
-    --bg-color: #f4f7f6;
-    --primary-color: #0056b3;
-    --primary-hover: #004494;
-    --text-main: #333;
-    --text-muted: #666;
-    --card-bg: #ffffff;
-    --border-radius: 8px;
-    --odd-semester: #eef2ff;
-    --even-semester: #fff4f1;
+    /* Palet Warna Terinspirasi dari ITS */
+    --primary-blue: #013880; 
+    --primary-blue-hover: #012a60;
+    --accent-yellow: #F2A900;
+    --accent-yellow-hover: #d99700;
+    --bg-color: #F4F6F9;
+    --card-bg: #FFFFFF;
+    --text-dark: #1E293B;
+    --text-muted: #64748B;
+    --border-color: #E2E8F0;
+    
+    /* Background Semester */
+    --odd-semester: #ffffff;
+    --even-semester: #F8FAFC;
+    
+    --radius: 10px;
 }
 
 * {
@@ -17,32 +24,51 @@
 }
 
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Roboto', sans-serif;
     background-color: var(--bg-color);
-    color: var(--text-main);
+    color: var(--text-dark);
     line-height: 1.6;
 }
 
+/* Tipografi untuk Heading */
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Navbar */
 .navbar {
-    background-color: var(--primary-color);
+    background-color: var(--primary-blue);
     color: white;
     padding: 1.5rem 1rem;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 12px rgba(1, 56, 128, 0.15);
+    border-bottom: 4px solid var(--accent-yellow);
 }
 
 .nav-content {
     max-width: 1200px;
     margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.nav-content p {
-    font-size: 0.9rem;
-    opacity: 0.8;
+.brand h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
 }
 
+.brand p {
+    font-size: 0.95rem;
+    color: #E2E8F0;
+    margin-top: 0.2rem;
+    font-weight: 400;
+}
+
+/* Layout Utama */
 .container {
     max-width: 1200px;
-    margin: 2rem auto;
+    margin: 3rem auto;
     padding: 0 1rem;
 }
 
@@ -50,131 +76,206 @@ body {
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;
-    margin-bottom: 2rem;
-    justify-content: space-between;
+    margin-bottom: 3rem;
 }
 
+/* Box Informasi */
 .info-box {
-    flex: 1 1 400px;
+    flex: 1 1 500px;
     background: var(--card-bg);
-    padding: 1.5rem;
-    border-radius: var(--border-radius);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    padding: 2rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
 }
 
-.btn-primary {
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
-    padding: 0.75rem 1.5rem;
+.info-box h2 {
+    color: var(--primary-blue);
+    margin-bottom: 0.75rem;
+    font-size: 1.5rem;
+}
+
+.info-box p {
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
     font-size: 1rem;
-    border-radius: var(--border-radius);
+}
+
+/* Tombol */
+.btn-primary {
+    background-color: var(--accent-yellow);
+    color: var(--primary-blue);
+    border: none;
+    padding: 0.8rem 1.8rem;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 6px;
     cursor: pointer;
-    margin-top: 1rem;
-    transition: background 0.3s ease;
-    font-weight: 600;
+    transition: all 0.3s ease;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .btn-primary:hover {
-    background-color: var(--primary-hover);
+    background-color: var(--accent-yellow-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(242, 169, 0, 0.3);
 }
 
+.btn-primary:disabled {
+    background-color: #cbd5e1;
+    color: #94a3b8;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Kartu Ringkasan (Total Semester & SKS) */
 .summary-cards {
     display: flex;
-    gap: 1rem;
-    flex: 1 1 300px;
+    gap: 1.5rem;
+    flex: 1 1 350px;
 }
 
 .stat-card {
     flex: 1;
     background: var(--card-bg);
-    padding: 1.5rem;
-    border-radius: var(--border-radius);
+    padding: 2rem 1.5rem;
+    border-radius: var(--radius);
     text-align: center;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    border-top: 4px solid var(--primary-blue);
+}
+
+.stat-card h3 {
+    color: var(--text-muted);
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.5rem;
 }
 
 .stat-value {
-    font-size: 2.5rem;
+    font-size: 3rem;
     font-weight: 700;
-    color: var(--primary-color);
+    color: var(--primary-blue);
+    line-height: 1;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .hidden {
     display: none !important;
 }
 
+/* Pesan Error */
 .error-container {
-    background-color: #fee2e2;
-    color: #991b1b;
+    background-color: #FEF2F2;
+    color: #991B1B;
     padding: 1.5rem;
-    border-radius: var(--border-radius);
+    border-radius: var(--radius);
     margin-bottom: 2rem;
-    border-left: 5px solid #dc2626;
+    border-left: 6px solid #DC2626;
+    font-weight: 500;
 }
 
+/* Blok Semester */
 .semester-block {
-    background: var(--card-bg);
-    border-radius: var(--border-radius);
-    margin-bottom: 2rem;
-    padding: 1.5rem;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    border-radius: var(--radius);
+    margin-bottom: 2.5rem;
+    padding: 2rem;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
 }
 
-/* Pewarnaan Ganjil / Genap */
 .semester-odd { background-color: var(--odd-semester); }
 .semester-even { background-color: var(--even-semester); }
 
 .semester-header {
-    border-bottom: 2px solid #ddd;
-    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 1rem;
     margin-bottom: 1.5rem;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-end;
 }
 
+.semester-header h2 {
+    color: var(--primary-blue);
+    font-size: 1.5rem;
+}
+
+.semester-header span {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    background: #E2E8F0;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-weight: 500;
+}
+
+/* Grid Mata Kuliah */
 .courses-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1rem;
+    gap: 1.25rem;
 }
 
+/* Kartu Mata Kuliah */
 .course-card {
     background: white;
-    border: 1px solid #eee;
-    padding: 1rem;
-    border-radius: 6px;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid var(--border-color);
+    padding: 1.25rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--primary-blue);
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
 }
 
 .course-card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+    border-left-color: var(--accent-yellow);
 }
 
 .course-code {
-    font-size: 0.85rem;
-    background: #e2e8f0;
-    color: #334155;
-    padding: 0.2rem 0.5rem;
+    align-self: flex-start;
+    font-size: 0.8rem;
+    background: #DBEAFE;
+    color: var(--primary-blue);
+    padding: 0.25rem 0.6rem;
     border-radius: 4px;
     font-weight: 600;
+    margin-bottom: 0.75rem;
 }
 
 .course-name {
-    margin: 0.75rem 0;
+    margin: 0 0 1rem 0;
     font-size: 1.1rem;
+    color: var(--text-dark);
+    flex-grow: 1; /* Membuat SKS selalu berada di bawah meskipun judul panjang */
 }
 
 .course-sks {
     font-size: 0.9rem;
     color: var(--text-muted);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
 }
 
+.course-sks::before {
+    content: '📚';
+    margin-right: 6px;
+    font-size: 0.9rem;
+}
+
+/* Footer */
 footer {
     text-align: center;
     padding: 2rem;
     color: var(--text-muted);
     font-size: 0.9rem;
+    margin-top: 2rem;
+    border-top: 1px solid var(--border-color);
 }
