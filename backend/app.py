@@ -1,5 +1,11 @@
 import json
 import os
+import sys
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+if BASE_DIR not in sys.path:
+    sys.path.append(BASE_DIR)
 
 from flask import Flask, jsonify, request
 from flask_cors import CORS
@@ -10,8 +16,7 @@ from core.validator import detect_cycle
 app = Flask(__name__)
 CORS(app)
 
-DATA_PATH = os.path.join(os.path.dirname(__file__), "data", "curriculum.json")
-
+DATA_PATH = os.path.join(BASE_DIR, "data", "curriculum.json")
 
 def load_curriculum():
     with open(DATA_PATH) as f:
