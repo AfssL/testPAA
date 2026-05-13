@@ -20,8 +20,8 @@
     <main class="container">
         <section class="control-panel">
             <div class="info-box">
-                <h2>Rencana Studi Mahasiswa</h2>
-                <p>Susun jalur kelulusanmu dengan tepat. Sistem akan secara otomatis merekomendasikan pengambilan mata kuliah per semester dengan memastikan seluruh prasyarat akademik terpenuhi.</p>
+                <h2>Simulasi Rencana Studi</h2>
+                <p>Pertama, klik tombol di bawah untuk menyusun roadmap akademik. Setelah jadwal muncul, <strong>klik pada kartu mata kuliah</strong> untuk mensimulasikan pengambilannya. Sistem akan mencegah Anda jika prasyarat belum terpenuhi.</p>
                 <button id="generate-btn" class="btn-primary">Buat Jadwal Studi</button>
             </div>
             
@@ -42,6 +42,8 @@
         <section id="schedule-container" class="schedule-timeline hidden">
             </section>
     </main>
+
+    <div id="toast-container" class="toast-container"></div>
 
     <footer>
         <p>INFORMATICS ITS - Surabaya, Indonesia</p>
